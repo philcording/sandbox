@@ -40,7 +40,7 @@ h2 {
     color: white;
 }
 
-fieldset div {margin: .5em 0;}
+fieldset div {margin: 0 0 .5em 0;}
 
 fieldset {
 	border-color:#52bde5; 
@@ -58,7 +58,9 @@ label {
 	float:left;
 }
 
-input[type="text"] {width:200px;}
+input[type="text"] {
+	width:200px; vertical-align:top; height:1.4em;
+}
 
 div.notification {
 	width: 500px; 

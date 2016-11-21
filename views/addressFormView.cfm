@@ -22,7 +22,7 @@
 		<!--- dob --->
 		<div>
 			<label for="dob">Date of birth: *</label>
-			<input type="text" name="dob" tabindex="2" autocomplete="off" placeholder="mm/dd/yyyy" />
+			<input type="text" name="dob" tabindex="2" autocomplete="off" placeholder="dd/mm/yyyy" />
 		</div>
 
 		<!--- house number --->
