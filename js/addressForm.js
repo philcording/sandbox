@@ -59,6 +59,14 @@ function AddressForm(){
 			return( false ); // Cancel default event.
 		});
 
+	//Add date picker to date of birth field
+	this.DOMRef.dob.datepicker({
+		changeMonth: true,
+		changeYear: true,
+		minDate: new Date(1900, 1 - 1, 26),
+		maxDate: new Date()
+	    });
+
     // Get the initial list of saved addresses
 	this.GetAddresses();
 }
