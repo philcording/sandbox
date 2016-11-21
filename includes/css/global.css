@@ -1,0 +1,88 @@
+/* Just a few basic styles to tidy it up slightly, some copied from Relayware public website ;) */
+body{color:#58595b; font-family:'Source Sans Pro', Arial, sans-serif; font-weight:400; font-size:14px; background:white; line-height:1.3em;}
+html, body {width:100%;height:100%;padding:0;margin:0;}
+
+#main-container {padding:10px;}
+
+#header-and-menu { 
+	background: white url("../images/relayware-logo.png") no-repeat left;
+	padding-left: 225px;
+	height: 75px;
+	line-height: 85px;
+	font-size:16px
+}
+
+#header-and-menu span, #header-and-menu a  {
+	display: block;
+    float: left;
+	line-height: 40px;
+    height: 40px;
+}
+
+#header-and-menu a {
+    background-color: #9cc038;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    width: 130px;
+    border-right: 1px solid #bbb;
+    margin: 25px 0 0 20px;
+    border-radius: 5px;
+}
+
+#header-and-menu a:hover {background-color: #c6c6c6;}
+#header-and-menu span {margin: 25px 0 0 20px;} 
+
+h2 {
+    border-radius: 5px;
+    background: #52bde5;
+    padding: 15px; 
+    color: white;
+}
+
+fieldset div {margin: .5em 0;}
+
+fieldset {
+	border-color:#52bde5; 
+	width: 500px;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+label {
+	margin-right:0.3em;
+	padding-right:13px;
+	margin-left:0;
+	width:170px;
+	display:block;
+	float:left;
+}
+
+input[type="text"] {width:200px;}
+
+div.notification {
+	width: 500px; 
+	margin: 13px;
+	font-size: 0.9em;
+}
+
+div.success {color:green;}
+div.error {color: red;}
+div.error h4 {margin: 0.3em 0;} 
+div.error p {margin: 0 0 0.3em 0; padding-left: 1em;}
+.hidden {display:none;}
+span.error {color: red; font-size: 0.9em;}
+
+
+table.data {border-collapse: collapse;}
+
+table.data th, table.data td {
+	padding: 4px 6px ;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+	font-size: 0.9em;
+}
+
+table.data tbody tr:hover{background-color:#f5f5f5;}
+
+
