@@ -10,8 +10,9 @@
 <head>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="includes/css/global.css" />
-	<script src="/jQuery/jquery-ui.min.js"></script>
-	<link rel="stylesheet" href="/jQuery/jquery-ui.min.css">
+	<!--- add in jQueryUI library and styles --->
+	<script src="/sandbox/includes/jQuery/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="/sandbox/includes/jQuery/jquery-ui.min.css">
 </head>
 
 <body>

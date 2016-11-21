@@ -63,8 +63,13 @@ function AddressForm(){
 	this.DOMRef.dob.datepicker({
 		changeMonth: true,
 		changeYear: true,
-		minDate: new Date(1900, 1 - 1, 26),
-		maxDate: new Date()
+		yearRange: '1910:2010',
+		showOn: "both",
+		dateFormat: "dd-mm-yy",
+		defaultDate: "-30y",
+		buttonImage: "/sandbox/includes/images/calendar-icon-blue.png",
+		buttonImageOnly: true,
+		buttonText: ""
 	    });
 
     // Get the initial list of saved addresses
