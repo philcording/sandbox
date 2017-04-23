@@ -1,22 +1,21 @@
 <cfcomponent extends="BaseAPI" output="false"
 	hint="Contains methods regarding postal addresses">
-
+	<!--- Test comment --->
 	<!--- cfc level constant variables --->
 	<cfset variables.addressLookupServiceUrl = 'https://api.getaddress.io/v2/uk'>
 	<cfset variables.apiKey = '4g9yrpu8uU-yr53wuLmUnQ6435'>
-
 
 	<!--- Method to find an address given house number and post code. --->
 	<!--- Uses getAddress.io API. For documentation see: https://getaddress.io/Documentation --->
 	<cffunction
 		name="LookupAddress"
-        access="remote" 
+        access="remote"
 		returntype="struct"
         returnformat="json"
         output="false"
 		hint="Finds an address for house number and post code. Returns a BaseAPI struct {success, errors[], data{}}"
 		description="Uses address finder API https://getaddress.io">
-		
+
 		<cfargument name="houseNum" type="string" required="true" hint="house number" />
 		<cfargument name="postCode" type="string" required="true" hint="valid UK postcode" />
 
@@ -30,7 +29,7 @@
 
 		<!--- Example call: https://api.getaddress.io/v2/uk/CF241QX/2?api-key=4g9yrpu8uU-yr53wuLmUnQ6435 --->
 		<cfset urlToSend = addressLookupServiceUrl
-			& "/" & UrlEncodedFormat(arguments.postCode) 
+			& "/" & UrlEncodedFormat(arguments.postCode)
 			& "/" & UrlEncodedFormat(arguments.houseNum)
 			& "?api-key=" & apiKey />
 
@@ -60,11 +59,11 @@
 					<cfset ArrayAppend(response.errors, "The address service lookup is not available (status 500).") />
 				</cfcase>
 			</cfswitch>
-		
+
 			<cfcatch>
 				<cfset response.success = false />
 				<cfset ArrayAppend(response.errors, "The address service lookup cannot be reached.") />
-			</cfcatch>	
+			</cfcatch>
 		</cftry>
 
 		<cfif response.success> <!--- no errors yet --->
@@ -75,7 +74,7 @@
 			<!--- For full functionality one would return a list of addresses to the form for the user to select which one they wanted. --->
 			<cfif ArrayLen(addressCheckerReturnStruct.addresses) eq 1>
 				<!--- we have a winner - a single address! --->
-				<!--- 'addresses' is a one item array containing a 7 item csv list containing address fields. Format as a nice useable struct --->  
+				<!--- 'addresses' is a one item array containing a 7 item csv list containing address fields. Format as a nice useable struct --->
 				<cfset returnAddress.line1 = ListGetAt(addressCheckerReturnStruct.addresses[1],1) />
 				<cfset returnAddress.line2 = ListGetAt(addressCheckerReturnStruct.addresses[1],2) />
 				<cfset returnAddress.line3 = ListGetAt(addressCheckerReturnStruct.addresses[1],3) />
@@ -83,7 +82,7 @@
 				<cfset returnAddress.locality = ListGetAt(addressCheckerReturnStruct.addresses[1],5) />
 				<cfset returnAddress.city = ListGetAt(addressCheckerReturnStruct.addresses[1],6) />
 				<cfset returnAddress.county = ListGetAt(addressCheckerReturnStruct.addresses[1],7) />
-	
+
 				<!--- add to response structure to be returned --->
 				<cfset response.data = returnAddress />
 
@@ -92,7 +91,7 @@
 				<cfset response.success = false />
 				<cfset ArrayAppend(response.errors, "More than one address returned. Please try a different post code/house number.") />
 			</cfif>
-			
+
 		</cfif>
 
 		<cfreturn response />
@@ -101,7 +100,7 @@
 
 	<cffunction
 		name="SaveAddress"
-        access="remote" 
+        access="remote"
 		returntype="struct"
         returnformat="json"
         output="false"
@@ -124,12 +123,12 @@
 		<cfset var response = this.GetNewResponse() /> <!--- response returned by this method --->
 
 		<cftry>
-			<cfset ArrayAppend(session.addresses,arguments) /> 
+			<cfset ArrayAppend(session.addresses,arguments) />
 			<cfset response.data = arguments />
 			<cfcatch>
 				<cfset response.success = false />
 				<cfset ArrayAppend(response.errors, "Error accessing the session scope. Address not saved.") />
-			</cfcatch>		
+			</cfcatch>
 		</cftry>
 
 		<cfreturn response />
@@ -137,9 +136,9 @@
 	</cffunction>
 
 
-	<cffunction 
+	<cffunction
 		name="GetAddresses"
-        access="remote" 
+        access="remote"
 		returntype="struct"
         returnformat="json"
         output="false"
@@ -152,7 +151,7 @@
 			<cfcatch>
 				<cfset response.success = false />
 				<cfset ArrayAppend(response.errors, "Error accessing the session scope. Addresses not retrieved.") />
-			</cfcatch>		
+			</cfcatch>
 		</cftry>
 
 		<cfreturn response>
