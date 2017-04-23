@@ -1,6 +1,6 @@
 <cfcomponent extends="BaseAPI" output="false"
 	hint="Contains methods regarding postal addresses">
-	<!--- Test comment --->
+
 	<!--- cfc level constant variables --->
 	<cfset variables.addressLookupServiceUrl = 'https://api.getaddress.io/v2/uk'>
 	<cfset variables.apiKey = '4g9yrpu8uU-yr53wuLmUnQ6435'>
